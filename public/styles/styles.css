@@ -982,6 +982,12 @@ body {
   .footer-fondo__boton button {
     display: none;
   }
+  #skeche {
+    padding-left: 0;
+  }
+  .ir-arriba {
+    width: 50px;
+  }
 }
 
 html, body {
@@ -1062,7 +1068,7 @@ html, body {
 
 #skeche {
   margin: 0px;
-  padding-left: 150px;
+  padding-left: 75px;
   background: #067BC0;
 }
 
