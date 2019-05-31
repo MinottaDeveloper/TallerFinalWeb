@@ -1,3 +1,8 @@
+// TALLER FINAL WEB
+//JERRY MINOTTA
+//MICHAELL ROJAS
+
+
 // importar el módulo express
 var express = require('express');
 var motorRender = require('express-handlebars');
