@@ -18,7 +18,10 @@ const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
 
 // Connection URL
-const url = 'mongodb://localhost:27017';
+const url = 'mongodb+srv://jerry-818:<password>@cluster0-1v0d1.mongodb.net/tienda';
+
+//const url = 'mongodb://localhost:27017';
+
 
 // Database Name
 const dbName = 'tienda';
@@ -29,13 +32,41 @@ const client = new MongoClient(url);
 var db = null;
 
 // Use connect method to connect to the Server
+client.connect(url,
+    {
+
+        auth: {
+            user: 'jerry-818',
+            password: 'MinottaDeveloper818'
+        }
+},
+function(err, client) {
+
+    if (err) throw err;
+    //assert.equal(null, err);
+    db = client.db('tienda');
+
+    app.listen(process.env.PORT || 1234);
+    
+    //client.close();
+}
+
+
+);
+
+//**********************************
+/*
+// Use connect method to connect to the Server
 client.connect(function(err) {
     assert.equal(null, err);
     db = client.db(dbName);
     
-
     //client.close();
 });
+
+
+
+*/
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -288,7 +319,9 @@ app.get('/checkout', function(request, response){
 
 
 // iniciar el servidor en el puerto 3000
+/*
 app.listen(3000, function() {
   console.log('Aplicación, escuchando el puerto 3000!');
 });
+*/
 
