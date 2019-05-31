@@ -974,3 +974,16 @@ html,body{
     padding-left: 150px;
     background: #067BC0;
 }
+
+.ir-arriba{
+	display:none;
+	padding:20px;
+	font-size:20px;
+	color:#FDFEFE;
+	cursor:pointer;
+	position: fixed;
+	bottom:20px;
+    right:20px;
+    width: 150px;
+    z-index: 1000;
+}

@@ -22,25 +22,27 @@ class Logica{
 
 
         //cargar los mapas
-      this.mapa1 = app.loadImage("https://i.ibb.co/wMjg7zT/bienvenida.png");
+      this.mapa1 = app.loadImage("https://i.ibb.co/GtsCjnC/welcome.png");
      
       this.mapa2= app.loadImage("https://i.ibb.co/9yhQwKs/Mesa-de-trabajo-1.png");  
-      this.mapa3= app.loadImage("https://i.ibb.co/6NSJVWB/stage2.png");
-      this.mapa4= app.loadImage("https://i.ibb.co/xHNJHWS/stage3.png");   
-      this.mapa5= app.loadImage("https://i.ibb.co/0Fj71SW/stage4.png");   
-      this.mapa6= app.loadImage("https://i.ibb.co/4NjWMTt/stage5.png");  
-      this.mapa7 = app.loadImage("https://i.ibb.co/s6SBtyv/stage1.png");
+      
+      this.mapa3= app.loadImage("https://i.ibb.co/0KqpV5V/Mesa-de-trabajo-9.png");
+      this.mapa4= app.loadImage("https://i.ibb.co/4ZKbpRG/Mesa-de-trabajo-11.png");
+      this.mapa5= app.loadImage("https://i.ibb.co/w64v6sq/Mesa-de-trabajo-13.png");
+      this.mapa6= app.loadImage("https://i.ibb.co/64T0GvX/Mesa-de-trabajo-17.png");
+      this.mapa7= app.loadImage("https://i.ibb.co/g4xxj0B/Mesa-de-trabajo-3.png"); 
 
       this.minMapa3= app.loadImage("https://i.ibb.co/SySWsd2/mega.png");
       this.minMapa4= app.loadImage("https://i.ibb.co/4KHh1G5/alternative.png");
       this.minMapa5= app.loadImage("https://i.ibb.co/F7JHQrw/summer.png");
       this.minMapa6= app.loadImage("https://i.ibb.co/m04KjJV/tropicana.png");
-      this.minMapa7= app.loadImage("https://i.ibb.co/xSD6Qdg/calima.png"); 
+      this.minMapa7= app.loadImage("https://i.ibb.co/JQDXGJ2/calima.png"); 
         
 
       //cargar los iconos de marcador y atras
       this.atras = app.loadImage("https://i.ibb.co/mbN3R93/atras.png");
       this.marcador = app.loadImage("https://i.ibb.co/rvGLcV4/marcador.png");
+      this.atrasOff = app.loadImage("https://i.ibb.co/B3thBxZ/Mesa-de-trabajo-32.png");
 
       //determina en que mapa se encuentra el usuario
       this.numeroMapa = 1;
@@ -68,16 +70,13 @@ class Logica{
             this.app.imageMode(this.app.CORNER);
             this.app.image(this.mapa1, 0, 0,1200,700);            
             this.app.imageMode(this.app.CENTER);
-            this.app.image(this.marcador, 212, 223, 130, 131);
+            
 
         }else if(this.numeroMapa==2){
             //en el mapa 2 se colocan todos los indicadores que llevan a los otros mapas
             
             this.app.imageMode(this.app.CORNER);
-            this.app.image(this.mapa2, 0, 0, 1200, 700);  
-            
-            //indicadores...
-        
+            this.app.image(this.mapa2, 0, 0, 1200, 700);          
 
                         
             //se ponen los mapas en el respectivo indicador
@@ -133,21 +132,13 @@ class Logica{
           
         }
 
-        //-----------------------------------------------------------------------------------------------------------------------
 
-        //se pone el indicador de atras para todos los mapas apartir del segundo mapa
-        if(this.numeroMapa>1){
         this.app.imageMode(this.app.CENTER);
-        //aqui tengo que poner la flecha atras de otro color !!!!!xd
-        //this.app.image(this.atras, 149, 100, 130, 131);
-        
-        }
-
     //Estas son las zonas sensibles que se evaluan para cambiar la forma del cursor y que aparezca la imagen que indica que es una zona donde el usuario puede hacer clic
 
         //indicador que lleva al mapa 2
         if(this.numeroMapa==1){
-        if(this.app.mouseX > 189 && this.app.mouseX< 221  && this.app.mouseY > 202 && this.app.mouseY< 243 ){
+        if(this.app.mouseX > 510 && this.app.mouseX< 885  && this.app.mouseY > 450 && this.app.mouseY< 490 ){
             this.app.cursor(this.app.HAND);
         }else{
         this.app.cursor(this.app.kind);
@@ -193,19 +184,12 @@ if(this.numeroMapa>=3){
         this.app.image(this.atras, 144, 83, 130, 131);
     }else{
         this.app.cursor(this.app.kind);
+        this.app.image(this.atrasOff, 144, 83, 130, 131);
     }
 }
 
-
-
-
-//if(this.sound.isPlaying()== false){
-    //}
-    
     if(this.numeroMapa>=3){
-       // this.sound.play();
-       //console.log(this.sound.isPlaying);
-
+   
     this.speaker.pintar();
 
 
@@ -258,7 +242,7 @@ if(this.numeroMapa>=3){
         }
 
         //indicador que lleva al mapa 2
-        if(this.app.mouseX > 189 && this.app.mouseX< 221  && this.app.mouseY > 202 && this.app.mouseY< 243 && this.numeroMapa==1){       
+        if(this.app.mouseX > 510 && this.app.mouseX< 885  && this.app.mouseY > 450 && this.app.mouseY< 490 && this.numeroMapa==1){       
             this.numeroMapa=2;
         }
 
