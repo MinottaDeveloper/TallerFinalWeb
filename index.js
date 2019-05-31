@@ -18,20 +18,22 @@ const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
 
 // Connection URL
-const url = 'mongodb+srv://jerry-818:<password>@cluster0-1v0d1.mongodb.net/tienda';
+//const url = 'mongodb+srv://jerry-818:<password>@cluster0-1v0d1.mongodb.net/tienda';
 
-//const url = 'mongodb://localhost:27017';
+const url = 'mongodb://localhost:27017';
 
 
 // Database Name
 const dbName = 'tienda';
 
+/*
 // Create a new MongoClient
 const client = new MongoClient(url);
 
 var db = null;
 
 // Use connect method to connect to the Server
+
 client.connect(url,
     {
 
@@ -46,13 +48,25 @@ function(err, client) {
     //assert.equal(null, err);
     db = client.db('tienda');
 
-    app.listen(process.env.PORT || 1234);
+    //app.listen(process.env.PORT || 1234);
     
     //client.close();
 }
 
 
 );
+*/
+
+
+
+
+
+
+
+
+
+
+
 
 //**********************************
 /*
@@ -67,6 +81,36 @@ client.connect(function(err) {
 
 
 */
+//--------------------------------------
+
+//mongodb+srv://cluster0-1v0d1.mongodb.net/tienda
+MongoClient.connect('mongodb+srv://cluster0-1v0d1.mongodb.net/tienda',
+
+  {
+      auth: {
+            user: 'jerry-818',
+            password: 'MinottaDeveloper818'
+
+      }
+  },
+  function(err, client){
+      if(err) throw err;
+
+      db = client.db('tienda');
+
+      app.listen(process.env.PORT || 5000);
+      console.log('Servidor encendido')
+  }
+
+);
+
+
+
+
+//----------------------------------------
+
+
+
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -319,6 +363,9 @@ app.get('/checkout', function(request, response){
 
 
 // iniciar el servidor en el puerto 3000
+
+
+
 /*
 app.listen(3000, function() {
   console.log('Aplicación, escuchando el puerto 3000!');
